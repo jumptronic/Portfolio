@@ -24,6 +24,7 @@
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       font-family: 'Martian Mono', monospace;
+      overflow-x: hidden;
     }
 
     body {
@@ -83,12 +84,14 @@
       opacity: 0;
       animation: up 0.7s 0.25s ease forwards;
       margin-bottom: 3.5rem;
+      max-width: 100%;
+      padding-left: 0.15em;
     }
 
     .hed-line {
       display: block;
       font-family: 'Fraunces', serif;
-      font-size: clamp(3rem, 16vw, 7.75rem);
+      font-size: clamp(2rem, 14vw, 7.75rem);
       font-weight: 900;
       font-style: italic;
       line-height: 0.9;
@@ -96,6 +99,7 @@
       color: var(--ink);
       white-space: normal;
       word-break: normal;
+      max-width: 100%;
     }
 
     .hed-line.accent {
@@ -210,8 +214,8 @@
     }
 
     @media (max-width: 600px) {
-      body { padding: 1.75rem; }
-      .hed-line { font-size: 9.5rem; }
+      body { padding: 1.25rem; }
+      .hed-nowrap { white-space: normal; }
       .links { flex-direction: column; gap: 1rem; }
       footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
     }
