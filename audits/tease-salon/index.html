@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Review — TEASE Salon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F2EC;
+      --ink: #1A1814;
+      --ink-mid: #3D3B37;
+      --ink-light: #6B6760;
+      --accent: #C8B89A;
+      --rule: rgba(26,24,20,0.12);
+      --fix-bg: #FDF0EF;
+      --fix-border: #E8BFBC;
+      --fix-text: #8B2E2B;
+      --watch-bg: #FDF6EC;
+      --watch-border: #E8D4A8;
+      --watch-text: #7A5010;
+      --good-bg: #F0F5EC;
+      --good-border: #BFCFB5;
+      --good-text: #3A5E2E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+    .nav-back::before { content: '← '; }
+
+    .nav-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* HEADER */
+    header {
+      padding: 5rem 3rem 4rem;
+      max-width: 860px;
+      opacity: 0;
+      animation: up 0.8s 0.1s ease forwards;
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    .summary-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .summary-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .summary-num {
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .summary-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .num-fix  { color: var(--fix-text); }
+    .num-watch{ color: var(--watch-text); }
+    .num-good { color: var(--good-text); }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      padding: 0 3rem 6rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      animation: up 0.7s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.3s; }
+    .section:nth-child(2) { animation-delay: 0.45s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .item:last-child { border-bottom: none; }
+
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    .badge-fix   { background: var(--fix-bg);   color: var(--fix-text);   border: 1px solid var(--fix-border); }
+    .badge-watch { background: var(--watch-bg); color: var(--watch-text); border: 1px solid var(--watch-border); }
+    .badge-good  { background: var(--good-bg);  color: var(--good-text);  border: 1px solid var(--good-border); }
+
+    .item-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .item-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .item-action {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .footer-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--ink); }
+
+    @keyframes up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      nav, header, .content, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .item { grid-template-columns: 1fr; gap: 0.75rem; }
+      .summary-row { flex-wrap: wrap; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="/">jessheitland.com</a>
+    <span class="nav-meta">April 2026</span>
+  </nav>
+
+  <header>
+    <p class="eyebrow">Site review &nbsp;/&nbsp; teasesalonmn.com</p>
+    <h1>TEASE Salon<br><em>Website Audit</em></h1>
+    <div class="summary-row">
+      <div class="summary-item">
+        <span class="summary-num num-fix">6</span>
+        <span class="summary-label">Needs attention</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-num num-watch">5</span>
+        <span class="summary-label">Keep an eye on</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-num num-good">4</span>
+        <span class="summary-label">Good</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <div class="section">
+      <p class="section-label">Needs attention</p>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">No primary headline</p>
+          <p class="item-body">The homepage has no H1 — the main heading search engines use to understand a page. Your logo fills that role visually, but it's an image, not text. Google can't read it the same way.</p>
+          <p class="item-action">Add a text-based headline to the hero. It can be visually styled to match your brand — it doesn't have to look like a plain heading.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">Missing meta description</p>
+          <p class="item-body">There's no custom description set for any page. When your site appears in Google search results, the snippet shown is auto-generated — usually awkward and not very convincing.</p>
+          <p class="item-action">Write a one or two sentence description for each page in your site settings. Think of it as a mini ad for each page.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">Screenshot images used as site photos</p>
+          <p class="item-body">Several images on the site are macOS screenshots. These are larger files than they need to be and load more slowly than proper web images.</p>
+          <p class="item-action">Re-export as JPG or WebP and re-upload with descriptive filenames — e.g. "tease-salon-interior.jpg" rather than a timestamp.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">Images missing descriptive text</p>
+          <p class="item-body">Most photos on the site have no alt text. This affects accessibility for visitors using screen readers, and means your images won't appear in Google image search results.</p>
+          <p class="item-action">Add a brief description to each content photo — what's shown, where it is (e.g. "Color service at TEASE Salon, Saint Paul").</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">Filename captions on services page</p>
+          <p class="item-body">A gallery near the bottom of the services page is showing raw file names as visible captions: "1.png", "2.png", etc.</p>
+          <p class="item-action">Remove the captions or replace with meaningful labels.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-fix">Fix it</span>
+        <div>
+          <p class="item-title">No social sharing preview</p>
+          <p class="item-body">When someone shares your site on Instagram, Facebook, or texts a link, the preview will look blank or generic — no image, no description.</p>
+          <p class="item-action">Set a social sharing image (1200×630px) and short description in your site settings.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Keep an eye on</p>
+
+      <div class="item">
+        <span class="badge badge-watch">Watch it</span>
+        <div>
+          <p class="item-title">Homepage title could be stronger</p>
+          <p class="item-body">Your homepage tab reads "TEASE Salon" — accurate, but it misses a chance to tell search engines what you do and where.</p>
+          <p class="item-action">Consider: "TEASE Salon | Hair Color &amp; Cuts in Saint Paul, MN"</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-watch">Watch it</span>
+        <div>
+          <p class="item-title">Cancellation policy as first impression</p>
+          <p class="item-body">The policy is detailed and necessary — but it's one of the first things a new visitor reads. For someone just discovering TEASE, it can feel like rules before a welcome.</p>
+          <p class="item-action">Consider a brief, warm note on the homepage and move the full policy to the booking flow.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-watch">Watch it</span>
+        <div>
+          <p class="item-title">Logo appears twice in navigation</p>
+          <p class="item-body">The logo loads twice per page — once for desktop nav, once for mobile. Both have correct alt text. Just something to know if page load speed becomes a concern.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-watch">Watch it</span>
+        <div>
+          <p class="item-title">Inconsistent page title format</p>
+          <p class="item-body">The homepage uses "TEASE Salon" while interior pages use "Page Name — TEASE Salon." Small thing, but consistency is a tidy SEO habit.</p>
+          <p class="item-action">Standardize to one format across all pages.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-watch">Watch it</span>
+        <div>
+          <p class="item-title">Image load performance (unconfirmed)</p>
+          <p class="item-body">Worth running a quick speed test to confirm images — especially the video backgrounds — aren't slowing things down on mobile.</p>
+          <p class="item-action">Run a free check at pagespeed.web.dev.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Good</p>
+
+      <div class="item">
+        <span class="badge badge-good">Good</span>
+        <div>
+          <p class="item-title">Business info is all there</p>
+          <p class="item-body">Address, phone, hours, and email are clearly present. This is exactly what Google needs for local search results and map listings.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-good">Good</span>
+        <div>
+          <p class="item-title">Pricing is published</p>
+          <p class="item-body">Full service pricing on the services page is a big advantage. Clients searching "balayage price Saint Paul" can find a real answer — which builds trust and reduces back-and-forth.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-good">Good</span>
+        <div>
+          <p class="item-title">Booking CTA is prominent</p>
+          <p class="item-body">The schedule link appears in the nav and at key moments throughout the page. The most important action is never hard to find.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="badge badge-good">Good</span>
+        <div>
+          <p class="item-title">Navigation is clear</p>
+          <p class="item-body">Services, About, Contact, Join Our Team, and Schedule — all the right pages, easy to find, no clutter.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-note">jessheitland.com / audits</span>
+    <a class="footer-link" href="mailto:jumptronic@gmail.com">Get in touch</a>
+  </footer>
+
+</body>
+</html>
