@@ -140,32 +140,35 @@
     .tab-bar {
       display: flex;
       border-bottom: 1px solid var(--rule);
-      padding: 0 3rem;
-      gap: 0.5rem;
+      padding: 1.25rem 3rem;
+      gap: 0.75rem;
+      background: var(--cream);
     }
 
     .tab-btn {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-light);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 1.25rem 1.25rem 1.25rem 0;
-      margin-bottom: -1px;
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 99px;
+      padding: 0.6rem 1.25rem;
       cursor: pointer;
-      transition: color 0.2s;
-      min-height: 52px;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
     }
 
     .tab-btn.active {
-      color: var(--ink);
-      border-bottom-color: var(--ink);
+      color: var(--cream);
+      background: var(--ink);
+      border-color: var(--ink);
     }
 
-    .tab-btn:hover:not(.active) { color: var(--ink-mid); }
+    .tab-btn:hover:not(.active) {
+      color: var(--ink);
+      border-color: var(--accent);
+    }
 
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
@@ -408,6 +411,35 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 99px;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.25s, transform 0.25s, border-color 0.15s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover { border-color: var(--accent); }
+
     @media (max-width: 640px) {
       nav, header, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .tab-bar { padding-left: 1.5rem; }
@@ -434,7 +466,7 @@
 
     <div class="summary-row">
       <div class="summary-item">
-        <span class="summary-num num-fix">6</span>
+        <span class="summary-num num-fix">7</span>
         <span class="summary-label">Needs attention</span>
       </div>
       <div class="summary-item">
@@ -514,6 +546,15 @@
             <p class="item-title">No social sharing preview</p>
             <p class="item-body">When someone shares the site via text or social, no image or description appears — just a blank or auto-generated preview.</p>
             <p class="item-action">Set a social sharing image (1200×630px) and short description in Squarespace's social settings.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">Schedule button doesn't link directly to booking</p>
+            <p class="item-body">The Schedule CTA in the nav opens the booking platform, but the direct link isn't wired to the booking page itself — adding an extra step for the client.</p>
+            <p class="item-action">Update the Schedule link to point directly to: <span style="font-family: DM Mono, monospace; font-size: 10px; color: var(--ink);">teasesalon.mysalononline.com/Booking/</span></p>
           </div>
         </div>
       </div>
@@ -677,17 +718,10 @@
 
   <footer>
     <span class="footer-note">jessheitland.com / audits</span>
-    <a class="footer-link" href="mailto:jumptronic@gmail.com">Get in touch</a>
+    <a class="footer-link" href="/cdn-cgi/l/email-protection#b7ddc2dac7c3c5d8d9ded4f7d0dad6dedb99d4d8da">Get in touch</a>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function showTab(id, btn) {
       document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-      document.getElementById('tab-' + id).classList.add('active');
-      btn.classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('a
