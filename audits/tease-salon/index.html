@@ -37,7 +37,6 @@
       min-height: 100vh;
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -66,9 +65,8 @@
       color: var(--ink-light);
     }
 
-    /* HEADER */
     header {
-      padding: 5rem 3rem 4rem;
+      padding: 5rem 3rem 3rem;
       max-width: 860px;
       opacity: 0;
       animation: up 0.8s 0.1s ease forwards;
@@ -92,9 +90,19 @@
       margin-bottom: 1.5rem;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--ink-light);
+    h1 em { font-style: italic; color: var(--ink-light); }
+
+    .audit-summary {
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      max-width: 58ch;
+    }
+
+    .audit-summary p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
     }
 
     .summary-row {
@@ -103,6 +111,7 @@
       margin-top: 2.5rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--rule);
+      flex-wrap: wrap;
     }
 
     .summary-item { display: flex; flex-direction: column; gap: 4px; }
@@ -123,11 +132,59 @@
       color: var(--ink-light);
     }
 
-    .num-fix  { color: var(--fix-text); }
-    .num-watch{ color: var(--watch-text); }
-    .num-good { color: var(--good-text); }
+    .num-fix   { color: var(--fix-text); }
+    .num-watch { color: var(--watch-text); }
+    .num-good  { color: var(--good-text); }
 
-    /* CONTENT */
+    /* TABS */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--rule);
+      padding: 0 3rem;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 1.25rem 1.25rem 1.25rem 0;
+      margin-bottom: -1px;
+      cursor: pointer;
+      transition: color 0.2s;
+      min-height: 52px;
+    }
+
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .tab-btn:hover:not(.active) { color: var(--ink-mid); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* TAB INTRO */
+    .tab-intro {
+      padding: 2.5rem 3rem 2rem;
+      max-width: 860px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+
+    .tab-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+      max-width: 58ch;
+    }
+
     .content {
       max-width: 860px;
       padding: 0 3rem 6rem;
@@ -135,13 +192,14 @@
 
     .section {
       margin-bottom: 4rem;
+      padding-top: 3rem;
       opacity: 0;
       animation: up 0.7s ease forwards;
     }
 
-    .section:nth-child(1) { animation-delay: 0.3s; }
-    .section:nth-child(2) { animation-delay: 0.45s; }
-    .section:nth-child(3) { animation-delay: 0.6s; }
+    .section:nth-child(1) { animation-delay: 0.15s; }
+    .section:nth-child(2) { animation-delay: 0.3s; }
+    .section:nth-child(3) { animation-delay: 0.45s; }
 
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -205,7 +263,119 @@
       line-height: 1.7;
     }
 
-    /* FOOTER */
+    /* COPY SECTION */
+    .copy-intro {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+
+    .copy-intro-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+
+    .copy-intro-hed {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .copy-intro-hed em { font-style: italic; color: var(--ink-light); }
+
+    .copy-intro-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+      max-width: 58ch;
+    }
+
+    .copy-block-wrap {
+      padding-top: 3rem;
+      margin-bottom: 0;
+      opacity: 0;
+      animation: up 0.7s ease forwards;
+    }
+
+    .copy-block-wrap:nth-child(2) { animation-delay: 0.2s; }
+    .copy-block-wrap:nth-child(3) { animation-delay: 0.3s; }
+    .copy-block-wrap:nth-child(4) { animation-delay: 0.4s; }
+    .copy-block-wrap:nth-child(5) { animation-delay: 0.5s; }
+
+    .copy-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .copy-card {
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .copy-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .copy-card-label.suggested { color: var(--good-text); }
+
+    .copy-hed {
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .copy-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+    }
+
+    .copy-cta {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--good-text);
+      background: var(--good-bg);
+      border: 1px solid var(--good-border);
+      padding: 5px 14px;
+      border-radius: 99px;
+    }
+
+    .copy-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
     footer {
       border-top: 1px solid var(--rule);
       padding: 2rem 3rem;
@@ -239,9 +409,11 @@
     }
 
     @media (max-width: 640px) {
-      nav, header, .content, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      nav, header, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .tab-bar { padding-left: 1.5rem; }
+      .tab-intro, .content { padding-left: 1.5rem; padding-right: 1.5rem; }
       .item { grid-template-columns: 1fr; gap: 0.75rem; }
-      .summary-row { flex-wrap: wrap; gap: 1.5rem; }
+      .summary-row { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -255,6 +427,11 @@
   <header>
     <p class="eyebrow">Site review &nbsp;/&nbsp; teasesalonmn.com</p>
     <h1>TEASE Salon<br><em>Website Audit</em></h1>
+
+    <div class="audit-summary">
+      <p>The site is in good shape. TEASE has a strong local reputation, clear pricing, and a booking flow that works — and the site reflects that. What follows are tune-up items, not a rebuild. The technical findings are mostly small fixes to hand to whoever manages your Squarespace. The content suggestions are about leading with identity — using what's already there more intentionally.</p>
+    </div>
+
     <div class="summary-row">
       <div class="summary-item">
         <span class="summary-num num-fix">6</span>
@@ -271,156 +448,246 @@
     </div>
   </header>
 
-  <div class="content">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('tech', this)">Technical findings</button>
+    <button class="tab-btn" onclick="showTab('copy', this)">Content suggestions</button>
+  </div>
 
-    <div class="section">
-      <p class="section-label">Needs attention</p>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">No primary headline</p>
-          <p class="item-body">The homepage has no H1 — the main heading search engines use to understand a page. Your logo fills that role visually, but it's an image, not text. Google can't read it the same way.</p>
-          <p class="item-action">Add a text-based headline to the hero. It can be visually styled to match your brand — it doesn't have to look like a plain heading.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">Missing meta description</p>
-          <p class="item-body">There's no custom description set for any page. When your site appears in Google search results, the snippet shown is auto-generated — usually awkward and not very convincing.</p>
-          <p class="item-action">Write a one or two sentence description for each page in your site settings. Think of it as a mini ad for each page.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">Screenshot images used as site photos</p>
-          <p class="item-body">Several images on the site are macOS screenshots. These are larger files than they need to be and load more slowly than proper web images.</p>
-          <p class="item-action">Re-export as JPG or WebP and re-upload with descriptive filenames — e.g. "tease-salon-interior.jpg" rather than a timestamp.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">Images missing descriptive text</p>
-          <p class="item-body">Most photos on the site have no alt text. This affects accessibility for visitors using screen readers, and means your images won't appear in Google image search results.</p>
-          <p class="item-action">Add a brief description to each content photo — what's shown, where it is (e.g. "Color service at TEASE Salon, Saint Paul").</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">Filename captions on services page</p>
-          <p class="item-body">A gallery near the bottom of the services page is showing raw file names as visible captions: "1.png", "2.png", etc.</p>
-          <p class="item-action">Remove the captions or replace with meaningful labels.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-fix">Fix it</span>
-        <div>
-          <p class="item-title">No social sharing preview</p>
-          <p class="item-body">When someone shares your site on Instagram, Facebook, or texts a link, the preview will look blank or generic — no image, no description.</p>
-          <p class="item-action">Set a social sharing image (1200×630px) and short description in your site settings.</p>
-        </div>
-      </div>
+  <!-- TECHNICAL TAB -->
+  <div id="tab-tech" class="tab-panel active">
+    <div class="tab-intro">
+      <p>These items are for whoever manages your Squarespace account. None require a redesign — most can be knocked out in a single session. Share this page with them and they'll know what to do.</p>
     </div>
+    <div class="content">
 
-    <div class="section">
-      <p class="section-label">Keep an eye on</p>
+      <div class="section">
+        <p class="section-label">Needs attention</p>
 
-      <div class="item">
-        <span class="badge badge-watch">Watch it</span>
-        <div>
-          <p class="item-title">Homepage title could be stronger</p>
-          <p class="item-body">Your homepage tab reads "TEASE Salon" — accurate, but it misses a chance to tell search engines what you do and where.</p>
-          <p class="item-action">Consider: "TEASE Salon | Hair Color &amp; Cuts in Saint Paul, MN"</p>
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">No primary headline</p>
+            <p class="item-body">The homepage has no H1 — the heading search engines use to understand a page. Your logo fills that role visually, but it's an image, not text.</p>
+            <p class="item-action">Add a text headline to the hero. It can be visually styled — doesn't have to look like a plain heading.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">Missing meta description</p>
+            <p class="item-body">No custom description is set for any page. Google auto-generates one — usually awkward and unconvincing.</p>
+            <p class="item-action">Write a 1–2 sentence description per page in Squarespace's SEO settings. Think of it as a mini ad.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">Screenshot images in production</p>
+            <p class="item-body">Several images are macOS screenshots — larger files, slower to load, and harder for search engines to index.</p>
+            <p class="item-action">Re-export as JPG or WebP with descriptive filenames. "tease-salon-interior.jpg" not "Screen Shot 2025-10-01."</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">Images missing alt text</p>
+            <p class="item-body">Most photos have no description attached — invisible to screen readers and Google image search.</p>
+            <p class="item-action">Add a brief description to each content photo in Squarespace's image settings.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">Filename captions on services page</p>
+            <p class="item-body">A gallery near the bottom of the services page shows raw filenames as captions: "1.png", "2.png", etc.</p>
+            <p class="item-action">Remove the captions or replace with meaningful labels.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-fix">Fix it</span>
+          <div>
+            <p class="item-title">No social sharing preview</p>
+            <p class="item-body">When someone shares the site via text or social, no image or description appears — just a blank or auto-generated preview.</p>
+            <p class="item-action">Set a social sharing image (1200×630px) and short description in Squarespace's social settings.</p>
+          </div>
         </div>
       </div>
 
-      <div class="item">
-        <span class="badge badge-watch">Watch it</span>
-        <div>
-          <p class="item-title">Cancellation policy as first impression</p>
-          <p class="item-body">The policy is detailed and necessary — but it's one of the first things a new visitor reads. For someone just discovering TEASE, it can feel like rules before a welcome.</p>
-          <p class="item-action">Consider a brief, warm note on the homepage and move the full policy to the booking flow.</p>
+      <div class="section">
+        <p class="section-label">Keep an eye on</p>
+
+        <div class="item">
+          <span class="badge badge-watch">Watch it</span>
+          <div>
+            <p class="item-title">Homepage title could be stronger</p>
+            <p class="item-body">Currently reads "TEASE Salon" — accurate, but misses a chance to tell Google what you do and where.</p>
+            <p class="item-action">Try: "TEASE Salon | Hair Color &amp; Cuts in Saint Paul, MN"</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-watch">Watch it</span>
+          <div>
+            <p class="item-title">Cancellation policy as first impression</p>
+            <p class="item-body">Necessary and fair — but it's one of the first things a new visitor reads. Can feel like rules before a welcome.</p>
+            <p class="item-action">Consider a brief, warm summary on the homepage; move the full policy to the booking flow.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-watch">Watch it</span>
+          <div>
+            <p class="item-title">Logo loads twice</p>
+            <p class="item-body">The logo appears twice in the HTML — once for desktop nav, once for mobile. Both have correct alt text. Low priority, worth knowing.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-watch">Watch it</span>
+          <div>
+            <p class="item-title">Inconsistent page title format</p>
+            <p class="item-body">Homepage uses "TEASE Salon" while interior pages use "Page Name — TEASE Salon." Small inconsistency, easy fix.</p>
+            <p class="item-action">Standardize to one format across all pages in Squarespace's SEO settings.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-watch">Watch it</span>
+          <div>
+            <p class="item-title">Image load performance (unconfirmed)</p>
+            <p class="item-body">Worth verifying that the video backgrounds aren't slowing things down on mobile.</p>
+            <p class="item-action">Run a free check at pagespeed.web.dev and share results if you'd like a read on them.</p>
+          </div>
         </div>
       </div>
 
-      <div class="item">
-        <span class="badge badge-watch">Watch it</span>
-        <div>
-          <p class="item-title">Logo appears twice in navigation</p>
-          <p class="item-body">The logo loads twice per page — once for desktop nav, once for mobile. Both have correct alt text. Just something to know if page load speed becomes a concern.</p>
+      <div class="section">
+        <p class="section-label">Good</p>
+
+        <div class="item">
+          <span class="badge badge-good">Good</span>
+          <div>
+            <p class="item-title">Business info is all there</p>
+            <p class="item-body">Address, phone, hours, and email are clearly present — exactly what Google needs for local search and map listings.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-good">Good</span>
+          <div>
+            <p class="item-title">Pricing is published</p>
+            <p class="item-body">Full service pricing builds trust and helps clients searching "balayage price Saint Paul" find a real answer.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-good">Good</span>
+          <div>
+            <p class="item-title">Booking CTA is prominent</p>
+            <p class="item-body">The schedule link appears in the nav and at key moments throughout. The most important action is never buried.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="badge badge-good">Good</span>
+          <div>
+            <p class="item-title">Navigation is clear</p>
+            <p class="item-body">Services, About, Contact, Join Our Team, Schedule — all the right pages, easy to find, no clutter.</p>
+          </div>
         </div>
       </div>
 
-      <div class="item">
-        <span class="badge badge-watch">Watch it</span>
-        <div>
-          <p class="item-title">Inconsistent page title format</p>
-          <p class="item-body">The homepage uses "TEASE Salon" while interior pages use "Page Name — TEASE Salon." Small thing, but consistency is a tidy SEO habit.</p>
-          <p class="item-action">Standardize to one format across all pages.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-watch">Watch it</span>
-        <div>
-          <p class="item-title">Image load performance (unconfirmed)</p>
-          <p class="item-body">Worth running a quick speed test to confirm images — especially the video backgrounds — aren't slowing things down on mobile.</p>
-          <p class="item-action">Run a free check at pagespeed.web.dev.</p>
-        </div>
-      </div>
     </div>
+  </div>
 
-    <div class="section">
-      <p class="section-label">Good</p>
-
-      <div class="item">
-        <span class="badge badge-good">Good</span>
-        <div>
-          <p class="item-title">Business info is all there</p>
-          <p class="item-body">Address, phone, hours, and email are clearly present. This is exactly what Google needs for local search results and map listings.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-good">Good</span>
-        <div>
-          <p class="item-title">Pricing is published</p>
-          <p class="item-body">Full service pricing on the services page is a big advantage. Clients searching "balayage price Saint Paul" can find a real answer — which builds trust and reduces back-and-forth.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-good">Good</span>
-        <div>
-          <p class="item-title">Booking CTA is prominent</p>
-          <p class="item-body">The schedule link appears in the nav and at key moments throughout the page. The most important action is never hard to find.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <span class="badge badge-good">Good</span>
-        <div>
-          <p class="item-title">Navigation is clear</p>
-          <p class="item-body">Services, About, Contact, Join Our Team, and Schedule — all the right pages, easy to find, no clutter.</p>
-        </div>
-      </div>
+  <!-- CONTENT TAB -->
+  <div id="tab-copy" class="tab-panel">
+    <div class="tab-intro">
+      <p>These are suggestions, not mandates. Each one is shorter, more direct, and easier to act on than what's there now. The goal is to lead with who TEASE is before explaining what it offers.</p>
     </div>
+    <div class="content">
 
+      <div class="copy-intro copy-block-wrap">
+        <p class="copy-intro-label">The opportunity</p>
+        <h2 class="copy-intro-hed">Lead with identity.<br><em>Then explain the services.</em></h2>
+        <p class="copy-intro-body">The bottom of your homepage has one of the strongest frames on the site — logo centered over full-bleed moving hair. That composition should open the page, not close it. Below are suggested rewrites for each homepage section, starting with a hero that leads with who TEASE is, not what it offers.</p>
+      </div>
+
+      <div class="copy-block-wrap">
+        <p class="copy-section-label">Hero</p>
+        <div class="copy-card">
+          <p class="copy-card-label">Current</p>
+          <p class="copy-body">At TEASE Salon, creativity isn't just a skill — it's a calling. Home to some of the hair industry's most gifted and forward-thinking artists…</p>
+        </div>
+        <div class="copy-card">
+          <p class="copy-card-label suggested">Suggested</p>
+          <p class="copy-hed">Saint Paul's salon for artists, originals, and everyone in between.</p>
+          <p class="copy-body">Bold color. Precision cuts. A team that actually listens. Walk in as you are — leave as you meant to be.</p>
+          <span class="copy-cta">Schedule an appointment →</span>
+        </div>
+      </div>
+
+      <div class="copy-block-wrap">
+        <p class="copy-section-label">Services section</p>
+        <div class="copy-card">
+          <p class="copy-card-label">Current</p>
+          <p class="copy-body">From precision cuts to dimensional color, TEASE Salon offers more than beauty — we offer transformation. Our artists specialize in custom looks tailored to your lifestyle, whether you're seeking bold reinvention or subtle refinement. With advanced techniques, luxury products, and a passion for detail, we craft styles that speak your truth. Haircuts, color, extensions, treatments — each service is a collaboration between vision and expertise.</p>
+        </div>
+        <div class="copy-card">
+          <p class="copy-card-label suggested">Suggested</p>
+          <p class="copy-hed">Every service, tailored to you.</p>
+          <p class="copy-body">Cuts. Color. Extensions. Treatments. Whether you want something bold or just better — our artists make it happen.</p>
+        </div>
+      </div>
+
+      <div class="copy-block-wrap">
+        <p class="copy-section-label">About us section</p>
+        <div class="copy-card">
+          <p class="copy-card-label">Current</p>
+          <p class="copy-body">At TEASE Salon, creativity isn't just a skill — it's a calling. Home to some of the hair industry's most gifted and forward-thinking artists, we're dedicated to delivering exceptional service and premium products with every appointment…</p>
+        </div>
+        <div class="copy-card">
+          <p class="copy-card-label suggested">Suggested</p>
+          <p class="copy-hed">Making Saint Paul more beautiful for over 20 years.</p>
+          <p class="copy-body">TEASE is home to some of the most talented artists in the industry — each one committed to continuing education, personalized care, and work they're proud of. This is a gender-affirming, welcoming space. Your chair is waiting.</p>
+        </div>
+      </div>
+
+      <div class="copy-block-wrap">
+        <p class="copy-section-label">Cancellation policy section</p>
+        <div class="copy-card">
+          <p class="copy-card-label">Current</p>
+          <p class="copy-body">STRICT AND ENFORCED 24-HOUR CANCELLATION POLICY! Please understand that when you forget or cancel your appointment without giving enough notice, we miss the opportunity to fill that appointment time…</p>
+        </div>
+        <div class="copy-card">
+          <p class="copy-card-label suggested">Suggested</p>
+          <p class="copy-hed">A note on appointments.</p>
+          <p class="copy-body">Your time — and ours — matters. We ask for at least 24 hours' notice on any cancellation or reschedule. A card is required to book, and late cancellations may incur a fee. Full details are available when you schedule.</p>
+          <p class="copy-note">Consider moving the full policy detail to the booking flow — it's the right place for it, and it keeps the homepage feeling like a welcome rather than a waiver.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <footer>
     <span class="footer-note">jessheitland.com / audits</span>
     <a class="footer-link" href="mailto:jumptronic@gmail.com">Get in touch</a>
   </footer>
+
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
