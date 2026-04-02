@@ -151,16 +151,24 @@
       color: var(--ink-mid);
       text-decoration: none;
       position: relative;
-      padding-bottom: 3px;
+      padding: 6px 8px;
+      margin: 0 -8px;
       transition: color 0.15s, background 0.15s;
-      border-radius: 1px;
+      border-radius: 2px;
+      display: inline-block;
     }
 
     .links a:hover {
       color: var(--bg);
       background: var(--accent);
-      padding: 0 4px;
-      margin: 0 -4px;
+    }
+
+    @media (max-width: 600px) {
+      .links a {
+        font-size: 13px;
+        padding: 10px 12px;
+        margin: 0 -12px;
+      }
     }
 
     /* FOOTER */
