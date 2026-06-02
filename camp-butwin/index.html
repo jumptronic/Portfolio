@@ -33,8 +33,8 @@
     font-family: 'Inter', sans-serif;
     background: var(--bg-base);
     color: var(--text);
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   .page {
@@ -65,19 +65,19 @@
   }
   .header h1 {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
     color: var(--text);
     letter-spacing: -0.3px;
   }
-  .header .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .header .sub { font-size: 14px; color: var(--muted); margin-top: 2px; }
   .header-badge {
     background: var(--green-bg);
     border: 1px solid var(--green);
     color: var(--green);
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     text-align: center;
     line-height: 1.4;
@@ -101,7 +101,7 @@
   .card.blue-card   { border-color: rgba(96,165,250,0.25); }
 
   .card-title {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.9px;
@@ -124,12 +124,12 @@
   /* ── Lists ── */
   ul.clean { list-style: none; }
   ul.clean li {
-    padding: 5px 0;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text);
   }
   ul.clean li:last-child { border-bottom: none; }
@@ -137,7 +137,7 @@
     content: '›';
     flex-shrink: 0;
     margin-top: 0px;
-    font-size: 14px;
+    font-size: 17px;
     color: var(--dim);
   }
   ul.clean.green-list li::before  { color: var(--green); }
@@ -151,8 +151,8 @@
     gap: 2px 14px;
   }
   .pack-item {
-    font-size: 13px;
-    padding: 5px 0;
+    font-size: 15px;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -161,7 +161,7 @@
   }
   .pack-item::before {
     content: '□';
-    font-size: 13px;
+    font-size: 15px;
     color: var(--dim);
     flex-shrink: 0;
   }
@@ -173,18 +173,18 @@
   .schedule-row {
     display: flex;
     gap: 14px;
-    padding: 5px 0;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 13px;
+    font-size: 15px;
     align-items: flex-start;
   }
   .schedule-row:last-child { border-bottom: none; }
   .time {
     font-weight: 600;
     color: var(--green);
-    min-width: 92px;
-    font-size: 11px;
-    padding-top: 2px;
+    min-width: 100px;
+    font-size: 12px;
+    padding-top: 3px;
     font-variant-numeric: tabular-nums;
   }
 
@@ -192,9 +192,9 @@
   .session-row {
     display: flex;
     gap: 10px;
-    padding: 5px 0;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 13px;
+    font-size: 15px;
     align-items: center;
   }
   .session-row:last-child { border-bottom: none; }
@@ -207,18 +207,18 @@
 
   /* ── Contacts ── */
   .contact-item {
-    font-size: 13px;
-    padding: 6px 0;
+    font-size: 15px;
+    padding: 7px 0;
     border-bottom: 1px solid var(--border);
   }
   .contact-item:last-child { border-bottom: none; }
   .contact-name { font-weight: 600; color: var(--text); }
-  .contact-detail { color: var(--muted); font-size: 12px; margin-top: 1px; }
+  .contact-detail { color: var(--muted); font-size: 13px; margin-top: 1px; }
 
   /* ── Meds ── */
   .med-item {
-    font-size: 13px;
-    padding: 5px 0;
+    font-size: 15px;
+    padding: 6px 0;
     border-bottom: 1px solid rgba(248,113,113,0.12);
   }
   .med-item:last-child { border-bottom: none; }
@@ -227,9 +227,9 @@
   /* ── Tags ── */
   .tag {
     display: inline-block;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: 5px;
     margin-left: 6px;
     vertical-align: middle;
@@ -243,7 +243,7 @@
   strong { color: var(--text); font-weight: 600; }
 
   em.note {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--muted);
     font-style: normal;
     display: block;
@@ -253,7 +253,7 @@
 
   /* ── Big label ── */
   .big-label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--green);
     margin-bottom: 6px;
@@ -262,7 +262,7 @@
   /* ── Footer ── */
   .footer {
     text-align: center;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--dim);
     margin-top: 24px;
     padding-top: 18px;
@@ -308,7 +308,7 @@
     <div class="card green-card">
       <div class="card-title"><span class="dot dot-green"></span>Bus Stop</div>
       <div class="big-label">Capp JCC</div>
-      <div style="font-size:13px; color:var(--muted); margin-bottom:10px;">1375 Saint Paul Ave, St. Paul MN 55116</div>
+      <div style="font-size:15px; color:var(--muted); margin-bottom:10px;"><a href="https://maps.apple.com/?q=1375+Saint+Paul+Ave,+St.+Paul,+MN+55116" style="color:var(--blue); text-decoration:none;">1375 Saint Paul Ave, St. Paul MN 55116 ↗</a></div>
       <ul class="clean green-list">
         <li>Drop-off: <strong>8:00–8:25 AM</strong></li>
         <li>Pick-up: <strong>4:30 PM — be on time</strong></li>
@@ -339,7 +339,7 @@
       <div class="pack-item">Sun hat</div>
       <div class="pack-item">Sweatshirt or rain jacket</div>
       <div class="pack-item">Closed-toed shoes</div>
-      <div class="pack-item special">Long pants <span class="tag amber">horse day only</span></div>
+      <div class="pack-item special">Long pants <span class="tag amber">horse day — Jun 19, Jun 26, Jul 3</span></div>
       <div class="pack-item">Spare clothes in labeled zip bag</div>
       <div class="pack-item special">Medication if needed <span class="tag red">Ziplock + label</span></div>
       <div class="pack-item never">No electronics</div>
@@ -364,27 +364,34 @@
 
     <div class="card amber-card">
       <div class="card-title"><span class="dot dot-amber"></span>Weekly Rhythms</div>
-      <ul class="clean amber-list">
-        <li><strong>Wacky Wednesday</strong> — dress to weekly theme. Check portal Sunday night for the theme.</li>
-        <li><strong>Friday — Shabbat Shalom</strong> — all-camp celebration: songs, grape juice, challah, Golden Broom award.</li>
-        <li>Field trips, late nights, overnights — permission slips via email &amp; portal. Watch before each session.</li>
-        <li><strong>Horse day</strong> — long pants required (changes at locker room). Date TBD — watch email.</li>
-      </ul>
+
+      <div style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.7px; color:var(--amber); margin-bottom:3px;">Every Wednesday</div>
+        <div style="font-size:15px; color:var(--text);">Wacky Wednesday — dress to weekly theme. Check portal Sunday night for the theme.</div>
+      </div>
+
+      <div style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.7px; color:var(--amber); margin-bottom:3px;">Every Friday</div>
+        <div style="font-size:15px; color:var(--text);">Shabbat Shalom — all-camp celebration: songs, grape juice, challah, Golden Broom award.</div>
+      </div>
+
+      <div style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.7px; color:var(--amber); margin-bottom:3px;">Each Session</div>
+        <div style="font-size:15px; color:var(--text);">Field trips, late nights, overnights — permission slips via email &amp; portal. Watch before each session.</div>
+      </div>
+
+      <div style="padding: 8px 0;">
+        <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.7px; color:var(--amber); margin-bottom:3px;">Horse Day <span style="background:var(--amber-bg); color:var(--amber); border:1px solid rgba(245,158,11,0.3); font-size:11px; padding:2px 8px; border-radius:5px; text-transform:none; letter-spacing:0;">long pants required</span></div>
+        <div style="font-size:15px; color:var(--text);">Week 1: Jun 19 &nbsp;·&nbsp; Week 2: Jun 26 &nbsp;·&nbsp; Week 3: Jul 3</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:3px;">Confirm dates — watch email. Changes at locker room ok.</div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Row 4: Meds + Action Items 
-  <div class="grid">
-    <div class="card red-card">
-      <div class="card-title"><span class="dot dot-red"></span>Theo's Medications (on health form)</div>
-      <div class="med-item"><span class="med-name">Methylphenidate HCl ER (Concerta)</span></div>
-      <div class="med-item"><span class="med-name">Albuterol inhaler</span> <span style="font-size:12px;color:var(--muted);">(ProAir / Ventolin)</span></div>
-      <div class="med-item"><span class="med-name">Budesonide-formoterol inhaler</span> <span style="font-size:12px;color:var(--muted);">(Symbicort / Breyna)</span></div>
-      <div class="med-item"><span class="med-name">Prednisone</span></div>
-      <em class="note" style="color:var(--red); margin-top:8px;">Asthma is a current health issue. Any med coming to camp: original labeled container in Ziplock — hand to staff at bus line.</em>
-    </div>
--->
-    <div class="card red-card">
+  <!-- Row 4: Action Items -->
+  <div class="grid" style="margin-bottom:14px;">
+    <div class="card red-card full">
       <div class="card-title"><span class="dot dot-red"></span>Before June 15 — Action Items</div>
       <ul class="clean red-list">
         <li>Watch for <strong>Health Coordinator email</strong> before June 15</li>
